@@ -35,6 +35,9 @@
 
     function getInfoCallback(map, content) {
         var infowindow = new google.maps.InfoWindow({content: content});
+        google.maps.event.addListener(map, 'click', function() {
+            infowindow.close();
+        });
         return function() {
                 infowindow.setContent(content);
                 infowindow.open(map, this);
